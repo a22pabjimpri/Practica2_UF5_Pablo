@@ -16,7 +16,14 @@ public class EquacioGrau2 {
     private double sol1;
     private double sol2;
 
-    public EquacioGrau2(double a, double b, double c) throws PrimerCoeficientZeroException, NoArrelsRealsException  {
+    public EquacioGrau2(double a, double b, double c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+
+    }
+
+    public void arrels() throws PrimerCoeficientZeroException, NoArrelsRealsException {
         if (a == 0) {
             throw new PrimerCoeficientZeroException("El primer coeficient es cero");
         }
@@ -24,14 +31,6 @@ public class EquacioGrau2 {
         if (b * b < 4 * a * c) {
             throw new NoArrelsRealsException("Error d'arrel");
         }
-        this.a = a;
-        this.b = b;
-        this.c = c;
-
-    }
-
-    public void arrels(){
-        
         double operacio = b * b - 4 * a * c;
         sol1 = (-b + Math.sqrt(operacio)) / (2 * a);
         sol2 = (-b - Math.sqrt(operacio)) / (2 * a);
